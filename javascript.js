@@ -56,9 +56,26 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-// Example of playing one round
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
-playRound(humanChoice, computerChoice);
+function playGame() {
+    humanScore = 0;
+    computerScore = 0;
 
-console.log(`Human Score: ${humanScore}, Computer Score: ${computerScore}`);
+    for (let i = 0; i < 5; i++) {
+        const humanChoice = getHumanChoice();
+        const computerChoice = getComputerChoice();
+        playRound(humanChoice, computerChoice);
+        console.log(`Human Score: ${humanScore}, Computer Score: ${computerScore}`);
+    }
+
+    console.log(`Final Scores - Human: ${humanScore}, Computer: ${computerScore}`);
+
+    if (humanScore > computerScore) {
+        console.log("You won the game!");
+    } else if (humanScore < computerScore) {
+        console.log("You lost the game!");
+    } else {
+        console.log("The game is a tie!");
+    }
+}
+
+playGame()
